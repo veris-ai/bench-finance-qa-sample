@@ -1,0 +1,45 @@
+schema_version = "1.4"
+artifacts = ["/logs/agent/trajectory.json", "/logs/agent/oracle.txt", { source = "/tmp/world/ledger.json", service = "world" }, { source = "/tmp/world/state-dropbox.json", service = "world" }]
+
+[task]
+name = "veris/financeqa__treasury-bonds-share-of-retired-debt-1949"
+description = "Considering the cumulative amount retired to date (not redemptions during the fiscal year) on the marketable public debt issues still outstanding at June 30, 1949, what percentage of that total was attributable to Treasury bonds? Give the percentage to four decimal places."
+keywords = ["Very blurry scan", "Large doc", "Single source", "No misprint", "Percent", "hard"]
+
+[metadata]
+difficulty = "hard"
+task_id = "task_17n6gji6m0fbz7mcuiw6e"
+
+[agent]
+timeout_sec = 1800.0
+network_mode = "allowlist"
+allowed_hosts = ["world", "pypi.org", "files.pythonhosted.org", "registry.npmjs.org", "archive.ubuntu.com", "security.ubuntu.com", "ports.ubuntu.com", "api.anthropic.com"]
+
+[verifier]
+timeout_sec = 600.0
+environment_mode = "separate"
+env = { OPENAI_API_KEY = "${OPENAI_API_KEY:-}", OPENAI_BASE_URL = "${OPENAI_BASE_URL:-https://api.openai.com/v1}", JUDGE_MODEL = "${JUDGE_MODEL:-gpt-5.6-terra}" }
+
+[verifier.environment]
+network_mode = "allowlist"
+allowed_hosts = ["api.openai.com"]
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+
+[[verifier.collect]]
+service = "world"
+command = "python3 /veris/harbor_collect.py /tmp/world dropbox=7200"
+timeout_sec = 60.0
+
+[environment]
+build_timeout_sec = 1200.0
+network_mode = "public"
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+
+[[environment.mcp_servers]]
+name = "dropbox"
+transport = "streamable-http"
+url = "http://world:6200/mcp"

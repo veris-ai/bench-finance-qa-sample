@@ -1,0 +1,6 @@
+{
+  "assertions": [
+    "The reply's final answer (the ANSWER: line, or otherwise the last stated numeric result) is a number equal to 1157575.42 within an absolute tolerance of $1.00, i.e. it lies between 1157574.42 and 1157576.42 inclusive, after ignoring currency symbols, thousands separators, percent signs and unit words. Equivalent forms also accepted: 1,157,575.42 | $1,157,575.42. Any number outside that range does NOT match, even if it is close, including these known wrong answers: 1150575.42 | 16401687.29 | 16727789.98 | -1157575.42."
+  ],
+  "rubric": "For a criterion that asks whether the reply's final answer is a number within a range: first copy the agent's final number exactly as written, then rewrite it without currency symbols, thousands separators, percent signs or unit words. Compare that number with the stated lower and upper limits digit by digit, starting from the leftmost digit, and quote the cleaned number and both limits in your reason before deciding. The answer passes only if it is greater than or equal to the lower limit and less than or equal to the upper limit. Two numbers are equal only if every digit matches."
+}

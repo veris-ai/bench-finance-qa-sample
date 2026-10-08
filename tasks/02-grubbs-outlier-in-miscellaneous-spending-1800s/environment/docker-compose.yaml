@@ -1,0 +1,25 @@
+services:
+  main:
+    depends_on:
+      world:
+        condition: service_healthy
+  world:
+    build:
+      context: ./world
+    platform: linux/amd64
+    # Explicit: keeps the world out of Harbor's egress sidecar (expose: conflicts with it, and main must not share its loopback control port).
+    networks:
+    - default
+    mem_limit: 2g
+    expose:
+    - '6200'
+    healthcheck:
+      test:
+      - CMD
+      - curl
+      - -fsS
+      - http://127.0.0.1:7200/veris/health
+      interval: 2s
+      timeout: 3s
+      retries: 300
+      start_period: 10s

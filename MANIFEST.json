@@ -1,0 +1,81 @@
+{
+  "bench_id": "bench_yx0y9n2s0iz4g83gxj2w9",
+  "bench_name": "FinanceQA",
+  "exporter_revision": "veris-sandbox@a96c1a245",
+  "exported_at": "2026-10-07T19:46:47Z",
+  "judge_model": "openai/gpt-5.6-terra",
+  "judge_base_url": "https://api.openai.com/v1",
+  "casting": "none",
+  "casting_seed": null,
+  "tasks": [
+    {
+      "folder": "tasks/01-ols-trend-of-non-debt-spending-fy1844-1859",
+      "task_id": "task_znyjn0wfwzb2ttga1cjmj",
+      "task_fingerprint": "0ec4c801b72f245c",
+      "archetype_id": null,
+      "actor_mode": "none",
+      "actor_mode_source": "set",
+      "start_at": "2026-10-06T20:53:19Z",
+      "world_id": "world_5qejt474pln4zracm1lg5",
+      "bench_world_snapshot": "5h2ylsgcxqer1w0vhebyqop33/w3r5lst4jn6egqm0hu5j91lrg",
+      "world_snapshot": "5h2ylsgcxqer1w0vhebyqop33/4ch1v0hlmndg5cqyoevbmmmk7",
+      "difficulty": "hard"
+    },
+    {
+      "folder": "tasks/02-grubbs-outlier-in-miscellaneous-spending-1800s",
+      "task_id": "task_hq1moabg1ay1thcmozxbi",
+      "task_fingerprint": "b2b1bfe3db4d82a0",
+      "archetype_id": null,
+      "actor_mode": "none",
+      "actor_mode_source": "set",
+      "start_at": "2026-10-06T20:53:19Z",
+      "world_id": "world_5qejt474pln4zracm1lg5",
+      "bench_world_snapshot": "5h2ylsgcxqer1w0vhebyqop33/w3r5lst4jn6egqm0hu5j91lrg",
+      "world_snapshot": "5h2ylsgcxqer1w0vhebyqop33/4ch1v0hlmndg5cqyoevbmmmk7",
+      "difficulty": "hard"
+    },
+    {
+      "folder": "tasks/03-appropriation-mix-dissimilarity-1820-vs-1829",
+      "task_id": "task_6ee4ggz8btmae69k07rnl",
+      "task_fingerprint": "19e595c3034dac37",
+      "archetype_id": null,
+      "actor_mode": "none",
+      "actor_mode_source": "set",
+      "start_at": "2026-10-06T20:53:19Z",
+      "world_id": "world_5qejt474pln4zracm1lg5",
+      "bench_world_snapshot": "5h2ylsgcxqer1w0vhebyqop33/w3r5lst4jn6egqm0hu5j91lrg",
+      "world_snapshot": "5h2ylsgcxqer1w0vhebyqop33/4ch1v0hlmndg5cqyoevbmmmk7",
+      "difficulty": "easy"
+    },
+    {
+      "folder": "tasks/04-irs-vs-post-office-officer-accountability-1962",
+      "task_id": "task_tq1vixn48p7j9z2jk9r8q",
+      "task_fingerprint": "ef1ab391064ca980",
+      "archetype_id": null,
+      "actor_mode": "none",
+      "actor_mode_source": "set",
+      "start_at": "2026-10-06T20:53:19Z",
+      "world_id": "world_5qejt474pln4zracm1lg5",
+      "bench_world_snapshot": "5h2ylsgcxqer1w0vhebyqop33/w3r5lst4jn6egqm0hu5j91lrg",
+      "world_snapshot": "5h2ylsgcxqer1w0vhebyqop33/4ch1v0hlmndg5cqyoevbmmmk7",
+      "difficulty": "medium"
+    },
+    {
+      "folder": "tasks/05-treasury-bonds-share-of-retired-debt-1949",
+      "task_id": "task_17n6gji6m0fbz7mcuiw6e",
+      "task_fingerprint": "97277a63a0bc58b2",
+      "archetype_id": null,
+      "actor_mode": "none",
+      "actor_mode_source": "set",
+      "start_at": "2026-10-06T20:53:19Z",
+      "world_id": "world_5qejt474pln4zracm1lg5",
+      "bench_world_snapshot": "5h2ylsgcxqer1w0vhebyqop33/w3r5lst4jn6egqm0hu5j91lrg",
+      "world_snapshot": "5h2ylsgcxqer1w0vhebyqop33/4ch1v0hlmndg5cqyoevbmmmk7",
+      "difficulty": "hard"
+    }
+  ],
+  "sample_of": {
+    "repository": "https://github.com/veris-ai/bench-finance-qa",
+    "tasks": 70
+  }
+}
