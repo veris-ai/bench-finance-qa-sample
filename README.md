@@ -82,8 +82,7 @@ number passes if it lies inside any accepted range in `tests/answer.json`:
 ```
 
 `reward` is 1.0 or 0.0. `verdict.json` beside it says how the number was read (`value`,
-`how`, `flags`), so a 0.0 is always explainable. `criteria.json` states the same rule in
-words. No model, key or network is involved, so results are exactly reproducible across
+`how`, `flags`), so a 0.0 is always explainable. No model, key or network is involved, so results are exactly reproducible across
 labs.
 
 ## Network policy
