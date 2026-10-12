@@ -7,4 +7,4 @@ Today is Tuesday, 6 October 2026. The time is 20:53 UTC.
 
 Use only the services available to you here. Do not use web search or any outside source.
 
-For each calendar year from 1800 through 1809, take the federal government's miscellaneous expenditures as reported by the Treasury. What is the Grubbs test statistic (computed with the sample standard deviation) for the most extreme observation in that series, rounded to four decimal places?
+Define a calendar year's expenditure rigidity index as expenditure on the civil list plus revolutionary and other pensions, taken as a percentage of that year's expenditures exclusive of the public debt. Across calendar years 1824, 1827, 1828 and 1829, by how many percentage points does the highest annual rigidity index exceed the lowest? Report to four decimal places.

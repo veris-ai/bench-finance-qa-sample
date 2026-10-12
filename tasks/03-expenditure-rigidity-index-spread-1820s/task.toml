@@ -2,13 +2,13 @@ schema_version = "1.4"
 artifacts = ["/logs/agent/trajectory.json", "/logs/agent/oracle.txt", { source = "/tmp/world/ledger.json", service = "world" }, { source = "/tmp/world/state-dropbox.json", service = "world" }]
 
 [task]
-name = "veris/financeqa__grubbs-outlier-in-miscellaneous-spending-1800s"
-description = "For each calendar year from 1800 through 1809, take the federal government's miscellaneous expenditures as reported by the Treasury. What is the Grubbs test statistic (computed with the sample standard deviation) for the most extreme observation in that series, rounded to four decimal places?"
-keywords = ["Clear scan", "Large doc", "Multi-source", "Misprint", "Statistics", "hard"]
+name = "veris/financeqa__expenditure-rigidity-index-spread-1820s"
+description = "Define a calendar year's expenditure rigidity index as expenditure on the civil list plus revolutionary and other pensions, taken as a percentage of that year's expenditures exclusive of the public debt. Across calendar years 1824, 1827, 1828 and 1829, by how many percentage points does the highest annual rigidity index exceed the lowest? Report to four decimal places."
+keywords = ["Clear scan", "Large doc", "Single source", "Misprint", "Percent", "medium"]
 
 [metadata]
-difficulty = "hard"
-task_id = "task_hq1moabg1ay1thcmozxbi"
+difficulty = "medium"
+task_id = "task_vzsgx88h76j6bmgov3cfd"
 
 [agent]
 timeout_sec = 1800.0

@@ -7,4 +7,4 @@ Today is Tuesday, 6 October 2026. The time is 20:53 UTC.
 
 Use only the services available to you here. Do not use web search or any outside source.
 
-Considering the cumulative amount retired to date (not redemptions during the fiscal year) on the marketable public debt issues still outstanding at June 30, 1949, what percentage of that total was attributable to Treasury bonds? Give the percentage to four decimal places.
+By how much did the appropriations and other obligational authority for refunding internal revenue collections change from fiscal year 1985 to fiscal year 1986? Report the fiscal 1986 amount minus the fiscal 1985 amount, in dollars to the cent.

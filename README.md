@@ -11,21 +11,37 @@ compute an exact figure. A deterministic script grades the final answer.
 
 | Task | Difficulty | Skill |
 |---|---|---|
-| 01 OLS trend of non-debt spending, FY1844–1859 | hard | regression over 16 years, multiple sources, a misprint |
-| 02 Grubbs outlier in miscellaneous spending, 1800s | hard | outlier statistics on a multi-source series |
-| 03 Appropriation-mix dissimilarity, 1820 vs 1829 | easy | a distance metric over one blurry statement |
+| 01 Appropriation-mix dissimilarity, 1820 vs 1829 | easy | a distance metric over one blurry statement, with a printed misprint to detect |
+| 02 Internal revenue refund authority change, FY1985–86 | easy | a lookup in two Appendix volumes and a subtraction to the cent |
+| 03 Expenditure rigidity index spread, 1820s | medium | a derived index over a decade of clear tables |
 | 04 IRS vs Post Office officer accountability, 1962 | medium | very blurry ledger, multi-step arithmetic |
-| 05 Treasury bonds' share of retired debt, 1949 | hard | very blurry scan, a percentage |
+| 05 OLS trend of non-debt spending, FY1844–1859 | hard | regression over 16 years, multiple sources, a misprint |
 
 Difficulty is empirical: `easy` = every valid hosted attempt passed, `hard` = every one
 failed, `medium` otherwise.
+
+## Baseline
+
+One attempt per task, no document-parsing service, the harness as shipped with a 30-minute
+budget, models on Bedrock. The grader is the one in this repo.
+
+| Harness | Model | Passed | Tasks solved |
+|---|---|---|---|
+| Claude Code | Claude Opus 5.5 | 4 / 5 | 01, 03, 04, 05 |
+| Codex | GPT-6.1 Sol | 3 / 5 | 01, 03, 04 |
+| Claude Code | Claude Sonnet 5.5 | 1 / 5 | 01 |
+| Codex | GPT-5.6 Terra | 1 / 5 | 02 |
+
+Every task was solved by at least one harness and none by all four. The hosted bench, where
+agents also get a document-parsing MCP server, scores higher; these numbers are what this
+export gives an agent that reads the scans itself.
 
 ## Quick start
 
 ```bash
 export ANTHROPIC_API_KEY=...    # your agent's model key (Claude Code shown below)
 
-harbor run -y -p tasks/03-appropriation-mix-dissimilarity-1820-vs-1829 -a oracle   # → reward 1.0: the setup works
+harbor run -y -p tasks/01-appropriation-mix-dissimilarity-1820-vs-1829 -a oracle   # → reward 1.0: the setup works
 harbor run -y -p tasks/<task> -a claude-code -m anthropic/claude-opus-5-5 \
   --ak disallowed_tools=WebSearch,WebFetch      # turn the CLI's web search off
 harbor run -y -p tasks -a <agent> -m <model>     # all five

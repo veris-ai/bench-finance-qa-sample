@@ -2,13 +2,13 @@ schema_version = "1.4"
 artifacts = ["/logs/agent/trajectory.json", "/logs/agent/oracle.txt", { source = "/tmp/world/ledger.json", service = "world" }, { source = "/tmp/world/state-dropbox.json", service = "world" }]
 
 [task]
-name = "veris/financeqa__treasury-bonds-share-of-retired-debt-1949"
-description = "Considering the cumulative amount retired to date (not redemptions during the fiscal year) on the marketable public debt issues still outstanding at June 30, 1949, what percentage of that total was attributable to Treasury bonds? Give the percentage to four decimal places."
-keywords = ["Very blurry scan", "Large doc", "Single source", "No misprint", "Percent", "hard"]
+name = "veris/financeqa__internal-revenue-refund-authority-change-fy1985-1986"
+description = "By how much did the appropriations and other obligational authority for refunding internal revenue collections change from fiscal year 1985 to fiscal year 1986? Report the fiscal 1986 amount minus the fiscal 1985 amount, in dollars to the cent."
+keywords = ["Clear scan", "Medium doc", "Multi-source", "Misprint", "Arithmetic", "easy"]
 
 [metadata]
-difficulty = "hard"
-task_id = "task_17n6gji6m0fbz7mcuiw6e"
+difficulty = "easy"
+task_id = "task_a2tafezo6lu47bppam19f"
 
 [agent]
 timeout_sec = 1800.0
