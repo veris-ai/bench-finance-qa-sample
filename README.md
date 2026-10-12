@@ -93,8 +93,6 @@ network_mode = "allowlist"
 allowed_hosts = ["world", "pypi.org", "files.pythonhosted.org", "registry.npmjs.org",
                  "archive.ubuntu.com", "security.ubuntu.com", "ports.ubuntu.com",
                  "api.anthropic.com"]   # replace with your model's host
-[verifier]
-network_mode = "no-network"             # the grader needs nothing
 ```
 
 `[environment]` is `public` so Harbor can install the agent before the task starts.

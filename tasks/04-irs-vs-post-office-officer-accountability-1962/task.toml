@@ -17,13 +17,6 @@ allowed_hosts = ["world", "pypi.org", "files.pythonhosted.org", "registry.npmjs.
 
 [verifier]
 timeout_sec = 600.0
-environment_mode = "separate"
-
-[verifier.environment]
-network_mode = "no-network"
-cpus = 1
-memory_mb = 2048
-storage_mb = 2048
 
 [[verifier.collect]]
 service = "world"
