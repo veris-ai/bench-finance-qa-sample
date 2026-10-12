@@ -1,6 +1,0 @@
-{
-  "assertions": [
-    "The reply's final answer (the ANSWER: line, or otherwise the last stated numeric result) is a number equal to 99.7401 within a relative tolerance of 0.1%, i.e. it lies between 99.640359 and 99.839841 inclusive, after ignoring currency symbols, thousands separators, percent signs and unit words. Any number outside that range does NOT match, even if it is close, including these known wrong answers: 97.2083 | 0.2599 | 71.1892 | 0.0713 | 2.3159."
-  ],
-  "rubric": "For a criterion that asks whether the reply's final answer is a number within a range: first copy the agent's final number exactly as written, then rewrite it without currency symbols, thousands separators, percent signs or unit words. Compare that number with the stated lower and upper limits digit by digit, starting from the leftmost digit, and quote the cleaned number and both limits in your reason before deciding. The answer passes only if it is greater than or equal to the lower limit and less than or equal to the upper limit. Two numbers are equal only if every digit matches."
-}
