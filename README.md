@@ -7,7 +7,7 @@ from Veris on request; this sample shows exactly what it looks like and how it s
 Each task gives the agent one question over scanned historical U.S. Treasury financial
 statements (1790s–1990s). The 1,462 source documents sit in a company Dropbox (a sandboxed,
 API-accurate replica served over MCP). The agent must find the right document, read it, and
-compute an exact figure. An LLM judge grades the final answer.
+compute an exact figure. A deterministic script grades the final answer.
 
 | Task | Difficulty | Skill |
 |---|---|---|
@@ -23,7 +23,6 @@ failed, `medium` otherwise.
 ## Quick start
 
 ```bash
-export OPENAI_API_KEY=...       # OpenAI API key, used by the judge
 export ANTHROPIC_API_KEY=...    # your agent's model key (Claude Code shown below)
 
 harbor run -y -p tasks/03-appropriation-mix-dissimilarity-1820-vs-1829 -a oracle   # → reward 1.0: the setup works
@@ -52,7 +51,7 @@ tasks/<task>/
   instruction.md          the question and the date
   task.toml               Harbor config: keywords, resources, network policy, MCP server, verifier
   environment/            the agent's container and the Dropbox sidecar
-  tests/                  the verifier (judge.py + criteria.json)
+  tests/                  the verifier (grade.py + answer.json)
   solution/NOTES.md       the reference answer (never shown to the agent)
 MANIFEST.json             the five tasks with their ids and fingerprints
 ```
@@ -71,27 +70,21 @@ MANIFEST.json             the five tasks with their ids and fingerprints
 
 ## Scoring
 
-The verifier makes one LLM call over the agent's trajectory, its final reply, and the
-Dropbox request log, checking every statement in `criteria.json`:
+The verifier is a deterministic script, `tests/grade.py`. It reads every message the agent
+wrote (its Harbor trajectory) and takes the number the reply commits to: the last line
+starting `ANSWER:`, else the last stated numeric result. Currency symbols, thousands
+separators, percent signs and unit words are ignored (unit words never rescale), and a
+leading minus, a Unicode minus or accounting parentheses make the number negative. The
+number passes if it lies inside any accepted range in `tests/answer.json`:
 
 ```json
-{"criterion_1": 1, "reward": 1.0}
+{"expected": 15.19, "ranges": [[15.1748, 15.2052]]}
 ```
 
-`reward` is 1.0 only if every criterion passes, else 0.0.
-
-The judge is pinned so results are comparable across labs:
-
-```toml
-[verifier]
-env = { JUDGE_MODEL = "${JUDGE_MODEL:-gpt-5.6-terra}",
-        OPENAI_BASE_URL = "${OPENAI_BASE_URL:-https://api.openai.com/v1}",
-        OPENAI_API_KEY = "${OPENAI_API_KEY:-}" }
-```
-
-Any OpenAI-compatible endpoint works: set `OPENAI_BASE_URL`, `JUDGE_MODEL`, and the host in
-`[verifier].allowed_hosts`. A different judge model gives numbers that are not comparable with
-the published ones.
+`reward` is 1.0 or 0.0. `verdict.json` beside it says how the number was read (`value`,
+`how`, `flags`), so a 0.0 is always explainable. `criteria.json` states the same rule in
+words. No model, key or network is involved, so results are exactly reproducible across
+labs.
 
 ## Network policy
 
@@ -102,8 +95,7 @@ allowed_hosts = ["world", "pypi.org", "files.pythonhosted.org", "registry.npmjs.
                  "archive.ubuntu.com", "security.ubuntu.com", "ports.ubuntu.com",
                  "api.anthropic.com"]   # replace with your model's host
 [verifier]
-network_mode = "allowlist"
-allowed_hosts = ["api.openai.com"]     # the judge's host
+network_mode = "no-network"             # the grader needs nothing
 ```
 
 `[environment]` is `public` so Harbor can install the agent before the task starts.

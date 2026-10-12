@@ -3,8 +3,9 @@
   "bench_name": "FinanceQA",
   "exporter_revision": "veris-sandbox@a96c1a245",
   "exported_at": "2026-10-07T19:46:47Z",
-  "judge_model": "openai/gpt-5.6-terra",
-  "judge_base_url": "https://api.openai.com/v1",
+  "grader": "numeric",
+  "judge_model": null,
+  "judge_base_url": null,
   "casting": "none",
   "casting_seed": null,
   "tasks": [

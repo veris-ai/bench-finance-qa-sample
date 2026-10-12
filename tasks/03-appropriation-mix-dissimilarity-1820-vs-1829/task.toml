@@ -18,11 +18,9 @@ allowed_hosts = ["world", "pypi.org", "files.pythonhosted.org", "registry.npmjs.
 [verifier]
 timeout_sec = 600.0
 environment_mode = "separate"
-env = { OPENAI_API_KEY = "${OPENAI_API_KEY:-}", OPENAI_BASE_URL = "${OPENAI_BASE_URL:-https://api.openai.com/v1}", JUDGE_MODEL = "${JUDGE_MODEL:-gpt-5.6-terra}" }
 
 [verifier.environment]
-network_mode = "allowlist"
-allowed_hosts = ["api.openai.com"]
+network_mode = "no-network"
 cpus = 1
 memory_mb = 2048
 storage_mb = 2048
