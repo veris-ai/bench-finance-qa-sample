@@ -1,6 +1,6 @@
-# finance-qa sample
+# treasury-qa sample
 
-Five of the 70 questions in Veris's **finance-qa** bench, packaged as
+Five of the 70 questions in Veris's **treasury-qa** bench, packaged as
 [Harbor](https://harborframework.com) tasks and free to run. The full 70-task set is available
 from Veris on request; this sample shows exactly what it looks like and how it scores.
 

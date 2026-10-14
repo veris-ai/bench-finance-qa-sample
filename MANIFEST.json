@@ -9,7 +9,7 @@
   "casting": "none",
   "casting_seed": null,
   "sample_of": {
-    "repository": "https://github.com/veris-ai/bench-finance-qa",
+    "repository": "https://github.com/veris-ai/bench-treasury-qa",
     "tasks": 70
   },
   "tasks": [
